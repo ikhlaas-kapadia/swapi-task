@@ -1,8 +1,15 @@
 body {
-    
+  background-image: url("../assets/images/background.png");
+}
+@font-face {
+  font-family: "Star Jedi";
+  src: url("../assets/font/Starjedi.ttf") format("truetype");
 }
 
-
+h1 {
+  font-family: "Star Jedi", arial;
+  -webkit-text-stroke: 1px yellow;
+}
 .character {
   /* width: 10px; */
   /* border: 1px solid red; */
@@ -18,10 +25,10 @@ body {
 }
 
 .image-container {
-    width: 40%;
-    height: 100%;
-    display: flex;
-    border-right: 1px solid black;
+  width: 40%;
+  height: 100%;
+  display: flex;
+  border-right: 1px solid black;
 }
 .person-icon {
   display: inline-flex;
@@ -36,5 +43,4 @@ body {
   width: 60%;
   margin: auto 0;
   font-size: 0.8rem;
-
 }
