@@ -15,10 +15,10 @@ $(document).ready(function () {
     }
     toggleButtons();
   }
-  //toggle buttons based on selection
+  //toggle buttons and message based on selection
+  let buttons = $(".btn-container");
+  let message = $(".conditional-msg");
   function toggleButtons() {
-    let buttons = $(".btn-container");
-    let message = $(".conditional-msg");
     if (selectionCount >= 3) {
       console.log(buttons);
       buttons.removeClass("invisible");
@@ -32,5 +32,12 @@ $(document).ready(function () {
   characterName.on("click", highlight);
 
   //Handle reset
-  let resetBtn = $("");
+  let resetBtn = $(".reset-btn");
+  function handleReset() {
+    selectionCount = 0;
+    characterName.css({ background: "rgba(0, 0, 0, 0)" });
+    buttons.addClass("invisible");
+    message.text("Select 3 characters!");
+  }
+  resetBtn.on("click", handleReset);
 });
