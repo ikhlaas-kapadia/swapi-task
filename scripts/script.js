@@ -18,17 +18,19 @@ $(document).ready(function () {
   //toggle buttons based on selection
   function toggleButtons() {
     let buttons = $(".btn-container");
-    let message = $(".selected-text");
+    let message = $(".conditional-msg");
     if (selectionCount >= 3) {
       console.log(buttons);
       buttons.removeClass("invisible");
-      message.removeClass("invisible");
+      message.text("You have selected jay, jack, jill");
     } else {
       buttons.addClass("invisible");
-      message.addClass("invisible");
+      message.text("Select 3 characters!");
     }
   }
-
   //Add highlight event on click of character
   characterName.on("click", highlight);
+
+  //Handle reset
+  let resetBtn = $("");
 });
