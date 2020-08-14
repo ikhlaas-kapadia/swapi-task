@@ -8,7 +8,7 @@ body {
 
 h1 {
   font-family: "Star Jedi", arial;
-  -webkit-text-stroke: 1px yellow;
+  -webkit-text-stroke: 1px #ffff55;
 }
 .character {
   /* width: 10px; */
@@ -39,8 +39,11 @@ h1 {
   min-width: 20px;
 }
 .char-name {
-  /* border: 1px solid red; */
   width: 60%;
-  margin: auto 0;
+  display: flex;
+}
+.char-name h3 {
+  align-self: center;
+  width: 100%;
   font-size: 0.8rem;
 }
