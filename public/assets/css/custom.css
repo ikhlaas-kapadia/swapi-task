@@ -1,9 +1,9 @@
 body {
-  background-image: url("../assets/images/background.png");
+  background-image: url("../images/background.png");
 }
 @font-face {
   font-family: "Star Jedi";
-  src: url("../assets/font/Starjedi.ttf") format("truetype");
+  src: url("../font/Starjedi.ttf") format("truetype");
 }
 
 h1 {
@@ -11,8 +11,6 @@ h1 {
   -webkit-text-stroke: 1px #ffff55;
 }
 .character {
-  /* width: 10px; */
-  /* border: 1px solid red; */
   margin-bottom: 15px;
   height: 80%;
 }
@@ -47,5 +45,3 @@ h1 {
   width: 100%;
   font-size: 0.8rem;
 }
-
-
