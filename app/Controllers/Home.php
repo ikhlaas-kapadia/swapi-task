@@ -1,10 +1,14 @@
 <?php namespace App\Controllers;
-
+use App\Models\CharactersModel;
+use CodeIgniter\Controller;
 class Home extends BaseController
 {
 	public function index()
-	{
-		return view('welcome_message');
+	{	$model = new CharactersModel();
+		$data['characters'] = $model->get_Characters();
+		$data['title'] = 'bye';
+		echo view('header', $data);
+		echo view('footer');
 	}
 
 	//--------------------------------------------------------------------
