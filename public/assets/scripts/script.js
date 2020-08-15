@@ -20,7 +20,6 @@ $(document).ready(function () {
   let message = $(".conditional-msg");
   function toggleButtons() {
     if (selectionCount >= 3) {
-      console.log(buttons);
       buttons.removeClass("invisible");
       message.text("You have selected jay, jack, jill");
     } else {
@@ -40,4 +39,25 @@ $(document).ready(function () {
     message.text("Select 3 characters!");
   }
   resetBtn.on("click", handleReset);
+
+  console.log(characters);
+
+  //handle pagination
+  let page = 10;
+  let itemsPerPage = 9;
+  let itemsViewed = itemsPerPage * page;
+  let itemPosition = itemsViewed - itemsPerPage;
+
+  function pageScroll() {
+    let elementNumber = 0;
+    for (let i = itemPosition; i < itemsViewed; i++) {
+      if (i === characters.length) return;
+      let charName = characters[i].name;
+
+      $(`#name-${elementNumber}`).text(charName);
+      elementNumber++;
+    }
+  }
+
+  pageScroll();
 });
