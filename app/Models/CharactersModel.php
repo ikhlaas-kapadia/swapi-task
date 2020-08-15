@@ -21,9 +21,6 @@ class CharactersModel extends Model
         $allPeople = array_merge($allPeople, $moreContent);
 
       }
-        // $allPeople = $content;
-        // echo("------>");
-        // print_r ($allPeople);
         echo count($allPeople);
         return $allPeople;
     }
