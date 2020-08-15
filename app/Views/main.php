@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta
       name="viewport"
@@ -32,9 +31,90 @@
                 </div>
             </div>
         </div>
+        <div></div>
         <div class="container main-container w-75" bg-transparent>
             <div class="container h-100" style="border: 1px solid green;">
                 <div class="row justify-content-sm-space-around h-100" style="border: 1px solid black">
+                    <div class="col-sm-4">
+                        <div class="card character flex-row">
+                            <div class="image-container">
+                                <img class="person-icon" src="../public/assets/images/user.png">
+                            </div>
+                            <div class="char-name" > 
+                                <h3 class="text-right">Dark vader</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="card character flex-row">
+                            <div class="image-container">
+                                <img class="person-icon" src="../public/assets/images/user.png">
+                            </div>
+                            <div class="char-name" > 
+                                <h3 class="text-right">Dark vader</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="card character flex-row">
+                            <div class="image-container">
+                                <img class="person-icon" src="../public/assets/images/user.png">
+                            </div>
+                            <div class="char-name" > 
+                                <h3 class="text-right">Dark vader</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="card character flex-row">
+                            <div class="image-container">
+                                <img class="person-icon" src="../public/assets/images/user.png">
+                            </div>
+                            <div class="char-name" > 
+                                <h3 class="text-right">Dark vader</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="card character flex-row">
+                            <div class="image-container">
+                                <img class="person-icon" src="../public/assets/images/user.png">
+                            </div>
+                            <div class="char-name" > 
+                                <h3 class="text-right">Dark vader</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="card character flex-row">
+                            <div class="image-container">
+                                <img class="person-icon" src="../public/assets/images/user.png">
+                            </div>
+                            <div class="char-name" > 
+                                <h3 class="text-right">Dark vader</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="card character flex-row">
+                            <div class="image-container">
+                                <img class="person-icon" src="../public/assets/images/user.png">
+                            </div>
+                            <div class="char-name" > 
+                                <h3 class="text-right">Dark vader</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="card character flex-row">
+                            <div class="image-container">
+                                <img class="person-icon" src="../public/assets/images/user.png">
+                            </div>
+                            <div class="char-name" > 
+                                <h3 class="text-right">Dark vader</h3>
+                            </div>
+                        </div>
+                    </div>
                     <div class="col-sm-4">
                         <div class="card character flex-row">
                             <div class="image-container">
