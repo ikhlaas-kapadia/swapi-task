@@ -6,8 +6,8 @@ class Home extends BaseController
 	public function index()
 	{	$model = new CharactersModel();
 		$data['characters'] = $model->get_Characters();
-		$data['title'] = 'bye';
 		echo view('main', $data);
+		
 	}
 
 	//--------------------------------------------------------------------
