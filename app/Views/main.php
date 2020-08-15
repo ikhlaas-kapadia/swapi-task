@@ -33,22 +33,22 @@
         </div>
         <div></div>
         <div class="container main-container w-75" bg-transparent>
-            <div class="container h-75">
+            <div class="container h-75 justif-content-sm-center">
+              <div> <div>
                 <div class="row justify-content-sm-space-around h-100">
                 <?php
-                    
-         foreach ($characters as $character) {?>
-         <div class="col-sm-4">
-                        <div class="card character flex-row rounded-0">
-                            <div class="image-container">
-                                <img class="person-icon" src="../public/assets/images/user.png">
-                            </div>
-                            <div class="char-name" > 
-                                <h3 class="text-right"><?php echo $character["name"]; ?></h3>
-                            </div>
+                  for($x = 0; $x < 9; $x++) {?>
+                  <div class="col-sm-4">
+                      <div class="card character flex-row rounded-0">
+                        <div class="image-container">
+                              <img class="person-icon" src="../public/assets/images/user.png">
                         </div>
-                    </div>
-        <?php } ?>
+                        <div class="char-name" > 
+                             <h3 class="text-right" id=<?php echo "name-$x" ?>></h3>
+                        </div>
+                      </div>
+                  </div>
+                  <?php } ?>
                     
             </div>
         </div>
@@ -77,5 +77,9 @@
     crossorigin="anonymous"
   ></script>
   <script src="../public/assets/scripts/script.js"></script>
+  <script>
+    let characters = <?=json_encode($characters)?>;
+    // console.log(myServerData);
+  </script>
   </body>
 </html>
