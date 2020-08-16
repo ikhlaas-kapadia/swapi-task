@@ -7,7 +7,7 @@ class Home extends BaseController
 	{	
 		$model = new CharactersModel();
 		$data['characters'] = $model->get_Characters();
-		return view('main', $data);
+		return view('home', $data);
 	}
 
 }
