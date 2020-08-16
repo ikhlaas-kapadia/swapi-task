@@ -10,8 +10,8 @@ You should now be able to view the webpage in your browser.
 
 # Technologies used
 
-PHP 7.3.1 - PHP installation is required.
-jquery
-CodeIgniter 4
-MAMP
-Bootstrap
+ - PHP 7.3.1 - PHP installation is required.
+ - jquery
+ - CodeIgniter 4
+ - Apache
+ - Bootstrap
