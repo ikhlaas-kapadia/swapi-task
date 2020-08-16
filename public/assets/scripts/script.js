@@ -79,7 +79,13 @@ $(document).ready(function () {
     message.text("Select 3 characters!");
     selectedChars = [];
   }
+
+  //Reset selection
   resetBtn.on("click", handleReset);
+
+  //Convert Object to JSON
+  let jsonObject = JSON.stringify(selectedChars);
+
 
   //Pagination setup
   let page = 1;
@@ -95,6 +101,8 @@ $(document).ready(function () {
       if (page === maxPages) return;
       page++;
     };
+    let currentPage = $('.current-page');
+    currentPage.text(`PAGE ${page}/`);
     loadPage();
   }
 
