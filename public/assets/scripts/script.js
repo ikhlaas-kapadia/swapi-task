@@ -1,9 +1,6 @@
 $(document).ready(function () {
-  console.log(allCharacters);
-
   let selectionCount = 0;
   let selectedChars = [];
-
   let character = $(".char-name");
   let buttons = $(".btn-container");
   let message = $(".conditional-msg");
@@ -33,10 +30,12 @@ $(document).ready(function () {
     if (selectionCount >= 3) {
       buttons.removeClass("invisible");
       for (let i = 0; i < selectedChars.length; i++) {
-        addedText += selectedChars[i].name + ", ";
         if (i === selectedChars.length - 1) {
           addedText += "and " + selectedChars[i].name;
+        } else {
+          addedText += selectedChars[i].name + ", ";
         }
+
       }
       message.text(`You have selected ${addedText}`.toUpperCase());
     } else {
@@ -63,9 +62,7 @@ $(document).ready(function () {
     selectedChars = [...updatedSelection];
   }
 
-
-
-  //Handle reset
+  //Handle reset on reset button
   let resetBtn = $(".reset-btn");
 
   function handleReset() {
@@ -78,13 +75,14 @@ $(document).ready(function () {
     selectedChars = [];
   }
 
-  //Reset selection
+  //Reset 
   resetBtn.on("click", handleReset);
 
+  // Download character info as csv
   let downloadBtn = $(".download-btn")
 
   function downloadFile() {
-    // JSON to CSV Converter
+    // 1- JSON to CSV Converter
     function convertToCSV(objArray) {
       let array = [...objArray];
       let csv = '';
@@ -104,6 +102,7 @@ $(document).ready(function () {
     }
     const data = convertToCSV(selectedChars);
 
+    // 2- download data
     function download(filename, data) {
       let element = document.createElement('a');
       element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(data));
@@ -117,11 +116,10 @@ $(document).ready(function () {
         element.click();
       }
     }
+    // download converted data
     download("your-characters", data)
   }
   downloadBtn.on("click", downloadFile);
-
-
 
   //Pagination setup
   let page = 1;
@@ -160,10 +158,6 @@ $(document).ready(function () {
       elementNumber++;
     }
   }
-
-
-
   $('.prev-btn, .next-btn').click(pageScroll)
-
   loadPage()
 });
