@@ -1,23 +1,29 @@
 $(document).ready(function () {
-  console.log("ready!");
+  console.log(allCharacters);
 
   let selectionCount = 0;
+  let selectedChars = [];
 
-  //highlight selection
-  let characterName = $(".char-name");
-  function highlight() {
+  let character = $(".char-name");
+  let buttons = $(".btn-container");
+  let message = $(".conditional-msg");
+
+  //highlight selection and add character info upon selection
+  function select() {
     if ($(this).css("background-color") === "rgba(0, 0, 0, 0)") {
       $(this).css({ background: "#35b335" });
+      addCharInfo($(this));
       selectionCount++;
     } else {
       $(this).css({ background: "none" });
       selectionCount--;
+      removeCharInfo($(this));
     }
+    console.log(selectedChars);
     toggleButtons();
   }
-  //toggle buttons and message based on selection
-  let buttons = $(".btn-container");
-  let message = $(".conditional-msg");
+
+  //toggle buttons and message based on character selection
   function toggleButtons() {
     if (selectionCount >= 3) {
       buttons.removeClass("invisible");
@@ -27,23 +33,40 @@ $(document).ready(function () {
       message.text("Select 3 characters!");
     }
   }
-  //Add highlight event on click of character
-  characterName.on("click", highlight);
+
+  //add character info upon selection
+  function addCharInfo(parent) {
+    let charName = parent.children().text();
+    let charDetails = allCharacters.filter((character) => {
+      return character.name === charName;
+    });
+    selectedChars.push(...charDetails);
+  }
+
+  //remove character info upon selection
+  function removeCharInfo(parent) {
+    let charName = parent.children().text();
+    let updatedSelection = selectedChars.filter((character) => {
+      return character.name !== charName;
+    });
+    selectedChars = [...updatedSelection];
+  }
+
+  character.on("click", select);
 
   //Handle reset
   let resetBtn = $(".reset-btn");
   function handleReset() {
     selectionCount = 0;
-    characterName.css({ background: "rgba(0, 0, 0, 0)" });
+    character.css({ background: "rgba(0, 0, 0, 0)" });
     buttons.addClass("invisible");
     message.text("Select 3 characters!");
   }
   resetBtn.on("click", handleReset);
 
-  console.log(characters);
-
   //handle pagination
-  let page = 10;
+
+  let page = 1;
   let itemsPerPage = 9;
   let itemsViewed = itemsPerPage * page;
   let itemPosition = itemsViewed - itemsPerPage;
@@ -51,13 +74,11 @@ $(document).ready(function () {
   function pageScroll() {
     let elementNumber = 0;
     for (let i = itemPosition; i < itemsViewed; i++) {
-      if (i === characters.length) return;
-      let charName = characters[i].name;
-
+      if (i === allCharacters.length) return;
+      let charName = allCharacters[i].name;
       $(`#name-${elementNumber}`).text(charName);
       elementNumber++;
     }
   }
-
   pageScroll();
 });
