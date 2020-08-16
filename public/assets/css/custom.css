@@ -53,6 +53,7 @@ h1 {
   align-self: center;
   width: 100%;
   font-size: 0.6rem;
+  padding-right: 5px;
 }
 
 .prev-btn {
@@ -64,4 +65,11 @@ h1 {
 .next-btn {
   align-self: center;
   margin-left: 15px;
+}
+
+.page-numbers {
+  color: white;
+  margin: 0 auto;
+  text-align: center;
+  border: 1px solid red;
 }
