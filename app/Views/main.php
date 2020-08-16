@@ -41,7 +41,6 @@
                 <div class="card character flex-row rounded-0">
                     <div class="image-container">
                       <div class="person-icon"></div>
-                        <!-- <img class="person-icon align-self-end" src="../public/assets/images/user.png"> -->
                     </div>
                     <div class="char-name" > 
                         <h3 class="text-right" id="<?php echo "name-$x"?>"></h3>
@@ -81,7 +80,6 @@
   <script src="../public/assets/scripts/script.js"></script>
   <script>
     let allCharacters = <?=json_encode($characters)?>;
-    console.log(Characters);
   </script>
   </body>
 </html>
