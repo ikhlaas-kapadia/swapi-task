@@ -4,12 +4,10 @@ use CodeIgniter\Controller;
 class Home extends BaseController
 {
 	public function index()
-	{	$model = new CharactersModel();
+	{	
+		$model = new CharactersModel();
 		$data['characters'] = $model->get_Characters();
-		echo view('main', $data);
-		
+		return view('main', $data);
 	}
-
-	//--------------------------------------------------------------------
 
 }

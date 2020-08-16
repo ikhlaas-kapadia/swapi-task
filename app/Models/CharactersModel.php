@@ -19,9 +19,7 @@ class CharactersModel extends Model
         $moreContent = $dataFormatted["results"];
         $moreData = $dataFormatted["next"];
         $allPeople = array_merge($allPeople, $moreContent);
-
       }
-        // echo count($allPeople);
         return $allPeople;
     }
 }
