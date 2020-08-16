@@ -37,7 +37,7 @@
           <div class="row characters-box border border-primary">
             <?php
               for($x = 0; $x < 9; $x++) {?>
-              <div class="col-4">
+              <div class="col-sm-4">
                 <div class="card character flex-row rounded-0">
                     <div class="image-container">
                       <div class="person-icon"></div>
@@ -51,6 +51,9 @@
                 <?php } ?>
           </div>
           <button class="next-btn">></button>
+        </div>
+        <div class="page-numbers">
+          <span class="current-page">PAGE 1 /  </span> <span class="total-page"> 10  </span>
         </div>
    
 
