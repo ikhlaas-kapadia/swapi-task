@@ -1,0 +1,78 @@
+body {
+  background-image: url("../images/background.png");
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "Star Jedi";
+  src: url("../font/Starjedi.ttf") format("truetype");
+}
+
+h1 {
+  font-family: "Star Jedi", arial;
+  -webkit-text-stroke: 1px #ffff55;
+}
+
+/* ----- Character Box ---- */
+.characters-box {
+  width: 100%;
+}
+
+.character {
+  margin: 15px 0 15px 0;
+}
+
+.image-container {
+  width: 30%;
+  height: 100%;
+  /* margin: 0;
+  border: 1px solid yellow; */
+}
+
+.person-icon {
+  min-height: 80px;
+  width: 100%;
+  height: 100%;
+  /* border: 1px solid red;
+  margin-top: 50%; */
+  background-image: url("../images/user.png");
+  background-repeat: no-repeat;
+  background-size: 70% 90%;
+  background-position: center;
+
+}
+
+.char-name {
+  width: 70%;
+  display: flex;
+  min-height: 70px;
+  border-left: 1px solid black;
+}
+
+.char-name h3 {
+  align-self: center;
+  width: 100%;
+  font-size: 0.6rem;
+  padding-right: 5px;
+}
+
+/* --- Scroll buttons --- */
+.prev-btn {
+  align-self: center;
+  margin-right: 15px;
+
+}
+
+.next-btn {
+  align-self: center;
+  margin-left: 15px;
+}
+
+
+/* --- dynamic page numbers--- */
+.page-numbers {
+  color: white;
+  margin: 0 auto;
+  text-align: center;
+
+}
