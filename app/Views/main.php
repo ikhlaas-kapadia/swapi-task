@@ -19,40 +19,39 @@
     <title>Hello, world!</title>
   </head>
   <body>
-        <h1 id="test" class=" header text-center">Star<br> Wars</h1>
-        <div class="container">
-            <div class="row selected-text">
-                <p class="col-sm-12 text-center text-light conditional-msg">Select 3 characters!</p>
-            </div>
-            <div class="row">
-                <div class="btn-container col-sm-12 text-center invisible">
-                    <button class="download-btn text-light bg-success">Download</button>
-                    <button class="reset-btn text-light bg-danger">Reset</button>
+      <h1 id="test" class=" header text-center">Star<br> Wars</h1>
+      <div class="container">
+          <div class="row selected-text">
+              <p class="col-sm-12 text-center text-light conditional-msg">Select 3 characters!</p>
+          </div>
+          <div class="row">
+              <div class="btn-container col-sm-12 text-center invisible">
+                  <button class="download-btn text-light bg-success">Download</button>
+                  <button class="reset-btn text-light bg-danger">Reset</button>
+              </div>
+          </div>
+      </div>
+
+      <div class="container border border-success d-flex justify-content-center flex-row">
+          <button class="prev-btn "><</button>
+          <div class="row characters-box border border-primary">
+            <?php
+              for($x = 0; $x < 9; $x++) {?>
+              <div class="col-4">
+                <div class="card character flex-row rounded-0">
+                    <div class="image-container">
+                      <div class="person-icon"></div>
+                        <!-- <img class="person-icon align-self-end" src="../public/assets/images/user.png"> -->
+                    </div>
+                    <div class="char-name" > 
+                        <h3 class="text-right" id="<?php echo "name-$x"?>"></h3>
+                    </div>
                 </div>
-            </div>
+              </div>
+                <?php } ?>
+          </div>
+          <button class="next-btn">></button>
         </div>
-        <div></div>
-        <div class="container main-container w-75" bg-transparent>
-            <div class="container h-75 justif-content-sm-center">
-              <div> <div>
-                <div class="row justify-content-sm-space-around h-100">
-                <?php
-                  for($x = 0; $x < 9; $x++) {?>
-                  <div class="col-sm-4">
-                      <div class="card character flex-row rounded-0">
-                        <div class="image-container">
-                              <img class="person-icon" src="../public/assets/images/user.png">
-                        </div>
-                        <div class="char-name" > 
-                             <h3 class="text-right" id=<?php echo "name-$x" ?>></h3>
-                        </div>
-                      </div>
-                  </div>
-                  <?php } ?>
-                    
-            </div>
-        </div>
-        <div id="demo"></div>
    
 
     <!-- Optional JavaScript -->
@@ -78,8 +77,8 @@
   ></script>
   <script src="../public/assets/scripts/script.js"></script>
   <script>
-    let characters = <?=json_encode($characters)?>;
-    // console.log(myServerData);
+    let allCharacters = <?=json_encode($characters)?>;
+    console.log(Characters);
   </script>
   </body>
 </html>
