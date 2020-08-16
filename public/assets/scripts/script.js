@@ -23,7 +23,6 @@ $(document).ready(function () {
       selectionCount--;
       removeCharInfo($(this));
     }
-    console.log(selectedChars);
     toggle();
   }
   character.on("click", select);
@@ -39,7 +38,6 @@ $(document).ready(function () {
           addedText += "and " + selectedChars[i].name;
         }
       }
-      console.log(addedText);
       message.text(`You have selected ${addedText}`.toUpperCase());
     } else {
       buttons.addClass("invisible");
@@ -83,8 +81,46 @@ $(document).ready(function () {
   //Reset selection
   resetBtn.on("click", handleReset);
 
-  //Convert Object to JSON
-  let jsonObject = JSON.stringify(selectedChars);
+  let downloadBtn = $(".download-btn")
+
+  function downloadFile() {
+    // JSON to CSV Converter
+    function convertToCSV(objArray) {
+      let array = [...objArray];
+      let csv = '';
+      let headers = Object.keys(array[0]).join(",");
+      csv += headers + '\n';
+
+      for (let i = 0; i < array.length; i++) {
+        let line = '';
+        for (let property in array[i]) {
+          if (line != '') line += ','
+          line += array[i][property];
+        }
+
+        csv += line + '\n';
+      }
+      return csv;
+    }
+    const data = convertToCSV(selectedChars);
+
+    function download(filename, data) {
+      let element = document.createElement('a');
+      element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(data));
+      element.setAttribute('download', `${filename}.csv`);
+
+      if (document.createEvent) {
+        let event = document.createEvent('MouseEvents');
+        event.initEvent('click', true, true);
+        element.dispatchEvent(event);
+      } else {
+        element.click();
+      }
+    }
+    download("your-characters", data)
+  }
+  downloadBtn.on("click", downloadFile);
+
 
 
   //Pagination setup
