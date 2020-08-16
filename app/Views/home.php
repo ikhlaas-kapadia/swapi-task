@@ -14,7 +14,7 @@
     />
     <link rel="stylesheet" href="../public/assets/css/custom.css">
 
-    <title>Hello, world!</title>
+    <title>SWAPI-TASK</title>
   </head>
   <body>
       <h1 id="test" class=" header text-center">Star<br> Wars</h1>
