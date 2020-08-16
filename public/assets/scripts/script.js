@@ -23,14 +23,24 @@ $(document).ready(function () {
       selectionCount--;
       removeCharInfo($(this));
     }
-    toggleButtons();
+    console.log(selectedChars);
+    toggle();
   }
+  character.on("click", select);
 
   //toggle buttons and message based on character selection
-  function toggleButtons() {
+  function toggle() {
+    let addedText = "";
     if (selectionCount >= 3) {
       buttons.removeClass("invisible");
-      message.text("You have selected jay, jack, jill");
+      for (let i = 0; i < selectedChars.length; i++) {
+        addedText += selectedChars[i].name + ", ";
+        if (i === selectedChars.length - 1) {
+          addedText += "and " + selectedChars[i].name;
+        }
+      }
+      console.log(addedText);
+      message.text(`You have selected ${addedText}`.toUpperCase());
     } else {
       buttons.addClass("invisible");
       message.text("Select 3 characters!");
@@ -67,8 +77,9 @@ $(document).ready(function () {
     });
     buttons.addClass("invisible");
     message.text("Select 3 characters!");
+    selectedChars = [];
   }
-
+  resetBtn.on("click", handleReset);
 
   //Pagination setup
   let page = 1;
@@ -87,11 +98,14 @@ $(document).ready(function () {
     loadPage();
   }
 
-  //----handle page load based on scroll
+  //----page load based on page number
   function loadPage() {
     let itemsViewed = itemsPerPage * page;
     let itemPosition = itemsViewed - itemsPerPage;
     let elementNumber = 0;
+    character.css({
+      background: "rgba(0, 0, 0, 0)"
+    });
     for (let i = itemPosition; i < itemsViewed; i++) {
       let charName = allCharacters[i] ? allCharacters[i].name : null;
       if (charName) {
@@ -103,8 +117,8 @@ $(document).ready(function () {
     }
   }
 
-  character.on("click", select);
-  resetBtn.on("click", handleReset);
+
+
   $('.prev-btn, .next-btn').click(pageScroll)
 
   loadPage()
