@@ -6,8 +6,6 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-
-    <!-- Bootstrap CSS -->
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -22,7 +20,7 @@
       <h1 id="test" class=" header text-center">Star<br> Wars</h1>
       <div class="container">
           <div class="row selected-text">
-              <p class="col-sm-12 text-center text-light conditional-msg">Select 3 characters!</p>
+              <p class="col-sm-12 text-center text-light conditional-msg">SELECT 3 CHARACTERS!</p>
           </div>
           <div class="row">
               <div class="btn-container col-sm-12 text-center invisible">
@@ -32,9 +30,9 @@
           </div>
       </div>
 
-      <div class="container border border-success d-flex justify-content-center flex-row">
+      <div class="container d-flex justify-content-center flex-row">
           <button class="prev-btn "><</button>
-          <div class="row characters-box border border-primary">
+          <div class="row characters-box">
             <?php
               for($x = 0; $x < 9; $x++) {?>
               <div class="col-sm-4">
@@ -54,10 +52,7 @@
         <div class="page-numbers">
           <span class="current-page">PAGE 1 /  </span> <span class="total-page"> 10  </span>
         </div>
-   
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
