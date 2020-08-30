@@ -35,8 +35,8 @@
           <div class="row characters-box">
             <?php
               for($x = 0; $x < 9; $x++) {?>
-              <div class="col-sm-4">
-                <div class="card character flex-row rounded-0">
+              <div class="col-sm-4 <?php echo "char-$x"?>">
+                <div class="card character flex-row rounded-0 " >
                     <div class="image-container">
                       <div class="person-icon"></div>
                     </div>

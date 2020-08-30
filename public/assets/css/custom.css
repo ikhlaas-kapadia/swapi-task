@@ -16,6 +16,7 @@ h1 {
 /* ----- Character Box ---- */
 .characters-box {
   width: 100%;
+  min-height: 50vh;
 }
 
 .character {
