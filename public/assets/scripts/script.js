@@ -1,4 +1,39 @@
 $(document).ready(function () {
+  // Setup Request to get remaining data on page load.
+  let apiPage = 3;
+  let pageCounter = apiPage;
+  let remainingData = [];
+  let dataLoaded = false;
+  let totalPages = Math.ceil(totalResults / resultsPerReq);
+  //--- Get remaining data
+  function getMoreData() {
+    for (let i = apiPage; i <= totalPages; i++) {
+      $.ajax({
+        url: `https://swapi.dev/api/people/?page=${i}`,
+        async: true,
+        success: function (result) {
+          remainingData.push({ index: i, value: [...result.results] });
+          pageCounter++;
+          apiPage++;
+          remainingData.sort(function (a, b) {
+            return a.index - b.index;
+          });
+
+          if (pageCounter === totalPages) {
+            dataLoaded = true;
+            let dataFormatted = [];
+            remainingData.forEach((el) => {
+              dataFormatted.push(...el.value);
+            });
+            allCharacters.push(...dataFormatted);
+            //change max pages when remaining data is received.
+            maxPages = Math.ceil(allCharacters.length / itemsPerPage);
+          }
+        },
+      });
+    }
+  }
+
   let selectionCount = 0;
   let selectedChars = [];
   let character = $(".char-name");
@@ -9,13 +44,13 @@ $(document).ready(function () {
   function select() {
     if ($(this).css("background-color") === "rgba(0, 0, 0, 0)") {
       $(this).css({
-        background: "#35b335"
+        background: "#35b335",
       });
       addCharInfo($(this));
       selectionCount++;
     } else {
       $(this).css({
-        background: "none"
+        background: "none",
       });
       selectionCount--;
       removeCharInfo($(this));
@@ -35,7 +70,6 @@ $(document).ready(function () {
         } else {
           addedText += selectedChars[i].name + ", ";
         }
-
       }
       message.text(`You have selected ${addedText}`.toUpperCase());
     } else {
@@ -68,35 +102,35 @@ $(document).ready(function () {
   function handleReset() {
     selectionCount = 0;
     character.css({
-      background: "rgba(0, 0, 0, 0)"
+      background: "rgba(0, 0, 0, 0)",
     });
     buttons.addClass("invisible");
     message.text("Select 3 characters!");
     selectedChars = [];
   }
 
-  //Reset 
+  //Reset
   resetBtn.on("click", handleReset);
 
   // Download character info as csv
-  let downloadBtn = $(".download-btn")
+  let downloadBtn = $(".download-btn");
 
   function downloadFile() {
     // 1- JSON to CSV Converter
     function convertToCSV(objArray) {
       let array = [...objArray];
-      let csv = '';
+      let csv = "";
       let headers = Object.keys(array[0]).join(",");
-      csv += headers + '\n';
+      csv += headers + "\n";
 
       for (let i = 0; i < array.length; i++) {
-        let line = '';
+        let line = "";
         for (let property in array[i]) {
-          if (line != '') line += ','
+          if (line != "") line += ",";
           line += array[i][property];
         }
 
-        csv += line + '\n';
+        csv += line + "\n";
       }
       return csv;
     }
@@ -104,20 +138,23 @@ $(document).ready(function () {
 
     // 2- download data
     function download(filename, data) {
-      let element = document.createElement('a');
-      element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(data));
-      element.setAttribute('download', `${filename}.csv`);
+      let element = document.createElement("a");
+      element.setAttribute(
+        "href",
+        "data:text/plain;charset=utf-8," + encodeURIComponent(data)
+      );
+      element.setAttribute("download", `${filename}.csv`);
 
       if (document.createEvent) {
-        let event = document.createEvent('MouseEvents');
-        event.initEvent('click', true, true);
+        let event = document.createEvent("MouseEvents");
+        event.initEvent("click", true, true);
         element.dispatchEvent(event);
       } else {
         element.click();
       }
     }
     // download converted data
-    download("your-characters", data)
+    download("your-characters", data);
   }
   downloadBtn.on("click", downloadFile);
 
@@ -134,8 +171,8 @@ $(document).ready(function () {
     } else {
       if (page === maxPages) return;
       page++;
-    };
-    let currentPage = $('.current-page');
+    }
+    let currentPage = $(".current-page");
     currentPage.text(`PAGE ${page}/`);
     loadPage();
   }
@@ -146,18 +183,26 @@ $(document).ready(function () {
     let itemPosition = itemsViewed - itemsPerPage;
     let elementNumber = 0;
     character.css({
-      background: "rgba(0, 0, 0, 0)"
+      background: "rgba(0, 0, 0, 0)",
     });
     for (let i = itemPosition; i < itemsViewed; i++) {
       let charName = allCharacters[i] ? allCharacters[i].name : null;
       if (charName) {
         $(`#name-${elementNumber}`).text(charName);
+        $(`.char-${elementNumber}`).removeClass("invisible");
       } else {
         $(`#name-${elementNumber}`).text("");
+        if ($(`#name-${elementNumber}`).text() === "") {
+          $(`.char-${elementNumber}`).addClass("invisible");
+        }
       }
       elementNumber++;
     }
+    if (!dataLoaded) {
+      getMoreData();
+    }
   }
-  $('.prev-btn, .next-btn').click(pageScroll)
-  loadPage()
+  $(".prev-btn, .next-btn").click(pageScroll);
+
+  loadPage();
 });

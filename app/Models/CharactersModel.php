@@ -10,16 +10,26 @@ class CharactersModel extends Model
         $dataFormatted = json_decode($data, true);
         $content = $dataFormatted["results"];
         $moreData = $dataFormatted["next"];
-        $allPeople = $content;
+        $people = $content;
+        $resultsPerPage = count($people);
+        $totalResults = $dataFormatted["count"];
+        $pages = 1;
+        $charactersArray = array("count"=>$totalResults, "perPage"=>$resultsPerPage);
+        
+      
 
-      while($moreData == true) {
+      while($moreData == true && $pages < 3) {
+        $pages++;
         $baseUrl = $moreData;
         $data = file_get_contents($baseUrl);
         $dataFormatted = json_decode($data, true);
         $moreContent = $dataFormatted["results"];
         $moreData = $dataFormatted["next"];
-        $allPeople = array_merge($allPeople, $moreContent);
+        $people = array_merge($people, $moreContent);
       }
-        return $allPeople;
+        // return $people;
+        $charactersArray["people"] = $people;
+        $charactersArray["moreData"] = $moreData;
+        return $charactersArray;
     }
 }
