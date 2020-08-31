@@ -78,7 +78,6 @@
     let moreData = <?=json_encode($characters["moreData"])?>;
     let totalResults = <?=json_encode($characters["count"])?>;
     let resultsPerReq = <?=json_encode($characters["perPage"])?>;
-    
   </script>
   </body>
 </html>

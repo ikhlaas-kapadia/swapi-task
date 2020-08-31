@@ -1,20 +1,23 @@
 $(document).ready(function () {
   // Setup Request to get remaining data on page load.
-  let apiPage = 3;
-  let pageCounter = apiPage;
+  let currentApiPage = 3;
+  let pageCounter = currentApiPage;
   let remainingData = [];
   let dataLoaded = false;
   let totalPages = Math.ceil(totalResults / resultsPerReq);
   //--- Get remaining data
   function getMoreData() {
-    for (let i = apiPage; i <= totalPages; i++) {
+    for (let i = currentApiPage; i < totalPages; i++) {
+      currentApiPage++;
       $.ajax({
-        url: `https://swapi.dev/api/people/?page=${i}`,
+        url: `https://swapi.dev/api/people/?page=${currentApiPage}`,
         async: true,
         success: function (result) {
-          remainingData.push({ index: i, value: [...result.results] });
+          remainingData.push({
+            index: i,
+            value: [...result.results],
+          });
           pageCounter++;
-          apiPage++;
           remainingData.sort(function (a, b) {
             return a.index - b.index;
           });
