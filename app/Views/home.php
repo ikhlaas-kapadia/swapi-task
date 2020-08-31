@@ -54,8 +54,8 @@
         </div>
   
     <script
-      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
       crossorigin="anonymous"
     ></script>
     <script
@@ -74,7 +74,11 @@
   ></script>
   <script src="../public/assets/scripts/script.js"></script>
   <script>
-    let allCharacters = <?=json_encode($characters)?>;
+    let allCharacters = <?=json_encode($characters["people"])?>;
+    let moreData = <?=json_encode($characters["moreData"])?>;
+    let totalResults = <?=json_encode($characters["count"])?>;
+    let resultsPerReq = <?=json_encode($characters["perPage"])?>;
+    
   </script>
   </body>
 </html>

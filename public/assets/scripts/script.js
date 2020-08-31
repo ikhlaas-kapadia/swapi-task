@@ -1,4 +1,39 @@
 $(document).ready(function () {
+  // Setup Request to get remaining data on page load.
+  let apiPage = 3;
+  let pageCounter = apiPage;
+  let remainingData = [];
+  let dataLoaded = false;
+  let totalPages = Math.ceil(totalResults / resultsPerReq);
+  //--- Get remaining data
+  function getMoreData() {
+    for (let i = apiPage; i <= totalPages; i++) {
+      $.ajax({
+        url: `https://swapi.dev/api/people/?page=${i}`,
+        async: true,
+        success: function (result) {
+          remainingData.push({ index: i, value: [...result.results] });
+          pageCounter++;
+          apiPage++;
+          remainingData.sort(function (a, b) {
+            return a.index - b.index;
+          });
+
+          if (pageCounter === totalPages) {
+            dataLoaded = true;
+            let dataFormatted = [];
+            remainingData.forEach((el) => {
+              dataFormatted.push(...el.value);
+            });
+            allCharacters.push(...dataFormatted);
+            //change max pages when remaining data is received.
+            maxPages = Math.ceil(allCharacters.length / itemsPerPage);
+          }
+        },
+      });
+    }
+  }
+
   let selectionCount = 0;
   let selectedChars = [];
   let character = $(".char-name");
@@ -163,7 +198,11 @@ $(document).ready(function () {
       }
       elementNumber++;
     }
+    if (!dataLoaded) {
+      getMoreData();
+    }
   }
   $(".prev-btn, .next-btn").click(pageScroll);
+
   loadPage();
 });
