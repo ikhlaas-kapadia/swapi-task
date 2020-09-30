@@ -1,6 +1,7 @@
 body {
   background-image: url("../images/background.png");
   box-sizing: border-box;
+  font-size: 2em;
 }
 
 @font-face {
@@ -11,12 +12,22 @@ body {
 h1 {
   font-family: "Star Jedi", arial;
   -webkit-text-stroke: 1px #ffff55;
+  font-size: 5rem;
+}
+
+.header {
+  margin-bottom: 50px;
+  margin-top: 50px;
 }
 
 /* ----- Character Box ---- */
 .characters-box {
   width: 100%;
-  min-height: 50vh;
+  /* min-height: 50vh; */
+}
+
+.conditional-msg {
+  margin-bottom: 50px;
 }
 
 .character {
@@ -24,10 +35,10 @@ h1 {
 }
 
 .image-container {
-  width: 30%;
+  width: 40%;
   height: 100%;
-  /* margin: 0;
-  border: 1px solid yellow; */
+  margin: 0;
+  border: 1px solid yellow;
 }
 
 .person-icon {
@@ -44,7 +55,7 @@ h1 {
 }
 
 .char-name {
-  width: 70%;
+  width: 60%;
   display: flex;
   min-height: 70px;
   border-left: 1px solid black;
@@ -53,7 +64,7 @@ h1 {
 .char-name h3 {
   align-self: center;
   width: 100%;
-  font-size: 0.6rem;
+  font-size: 1rem;
   padding-right: 5px;
 }
 

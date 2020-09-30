@@ -17,7 +17,7 @@
     <title>SWAPI-TASK</title>
   </head>
   <body>
-      <h1 id="test" class=" header text-center">Star<br> Wars</h1>
+      <h1 id="test" class="header text-center">Star Wars</h1>
       <div class="container">
           <div class="row selected-text">
               <p class="col-sm-12 text-center text-light conditional-msg">SELECT 3 CHARACTERS!</p>
@@ -30,7 +30,7 @@
           </div>
       </div>
 
-      <div class="container d-flex justify-content-center flex-row">
+      <div class="container-sm d-flex justify-content-center flex-row">
           <button class="prev-btn "><</button>
           <div class="row characters-box">
             <?php
