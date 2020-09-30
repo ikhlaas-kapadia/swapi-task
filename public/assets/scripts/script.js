@@ -45,16 +45,16 @@ $(document).ready(function () {
 
   //highlight selection and add character info upon selection
   function select() {
-    if ($(this).css("background-color") === "rgba(0, 0, 0, 0)") {
-      $(this).css({
-        background: "#35b335",
-      });
+    if ($(this).hasClass("unselected")) {
+      console.log($(this));
+      $(this).removeClass("unselected");
+      $(this).addClass("selected");
       addCharInfo($(this));
       selectionCount++;
     } else {
-      $(this).css({
-        background: "none",
-      });
+      console.log($(this));
+      $(this).removeClass("selected");
+      $(this).addClass("unselected");
       selectionCount--;
       removeCharInfo($(this));
     }
@@ -65,7 +65,7 @@ $(document).ready(function () {
   //toggle buttons and message based on character selection
   function toggle() {
     let addedText = "";
-    if (selectionCount >= 3) {
+    if (selectionCount >= 2) {
       buttons.removeClass("invisible");
       for (let i = 0; i < selectedChars.length; i++) {
         if (i === selectedChars.length - 1) {
@@ -77,7 +77,7 @@ $(document).ready(function () {
       message.text(`You have selected ${addedText}`.toUpperCase());
     } else {
       buttons.addClass("invisible");
-      message.text("Select 3 characters!");
+      message.text("SELECT 2 CHARACTERS OR MORE!");
     }
   }
 
@@ -104,11 +104,10 @@ $(document).ready(function () {
 
   function handleReset() {
     selectionCount = 0;
-    character.css({
-      background: "rgba(0, 0, 0, 0)",
-    });
+    character.addClass("unselected");
+    character.removeClass("selected");
     buttons.addClass("invisible");
-    message.text("Select 3 characters!");
+    message.text("SELECT 2 CHARACTERS OR MORE!");
     selectedChars = [];
   }
 
