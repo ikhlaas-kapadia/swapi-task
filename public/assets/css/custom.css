@@ -36,7 +36,7 @@ h1 {
 .conditional-msg {
   margin-top: 1vh;
   border: 1px solid green;
-  font-size: 1rem;
+  font-size: 0.9rem;
   min-height: 10vh;
 }
 
@@ -121,7 +121,7 @@ h1 {
 
 .download-btn,
 .reset-btn {
-  font-size: 1rem;
+  font-size: 0.9rem;
   margin: 0;
 }
 
@@ -151,10 +151,10 @@ h1 {
     margin-bottom: 0px;
   }
 
-  .download-btn,
+  /* .download-btn,
   .reset-btn {
     font-size: 0.8rem;
-  }
+  } */
 
 }
 
@@ -184,6 +184,17 @@ h1 {
   .prev-btn,
   .next-btn {
 
+    font-size: 1.2rem;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+
+  h1 {
+    font-size: 3.5rem;
+  }
+
+  .conditional-msg {
     font-size: 1.2rem;
   }
 }
