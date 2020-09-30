@@ -12,72 +12,102 @@ body {
 h1 {
   font-family: "Star Jedi", arial;
   -webkit-text-stroke: 1px #ffff55;
-  font-size: 5rem;
+  font-size: 2.5rem;
 }
 
 .header {
-  margin-bottom: 50px;
-  margin-top: 50px;
+  margin-bottom: 1vh;
+  margin-top: 1vh;
+  width: 90%;
+  margin: 0 auto;
 }
 
 /* ----- Character Box ---- */
 .characters-box {
-  width: 100%;
-  /* min-height: 50vh; */
+  border: 1px solid red;
+  min-height: 60vh;
+  max-height: 60vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
 }
 
 .conditional-msg {
-  margin-bottom: 50px;
+  margin-top: 1vh;
+  border: 1px solid green;
+  font-size: 1rem;
+  min-height: 10vh;
 }
 
 .character {
   margin: 15px 0 15px 0;
+  height: 40px;
+  width: 100%;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: row;
 }
+
+
+
+
 
 .image-container {
   width: 40%;
-  height: 100%;
+  min-height: 100%;
   margin: 0;
   border: 1px solid yellow;
-}
-
-.person-icon {
-  min-height: 80px;
-  width: 100%;
-  height: 100%;
-  /* border: 1px solid red;
-  margin-top: 50%; */
   background-image: url("../images/user.png");
   background-repeat: no-repeat;
   background-size: 70% 90%;
   background-position: center;
-
+  background-color: rgb(255, 255, 255)
 }
+
+
 
 .char-name {
   width: 60%;
-  display: flex;
-  min-height: 70px;
   border-left: 1px solid black;
+  margin: 0;
+  min-height: 100%;
+  border: 1px solid red;
+  display: flex;
 }
 
 .char-name h3 {
   align-self: center;
+  height: 50%;
+  overflow: visible;
+  margin: auto 0;
   width: 100%;
-  font-size: 1rem;
+  text-align: center;
   padding-right: 5px;
+  font-size: 0.7rem;
+
+}
+
+.unselected {
+  background-color: rgb(255, 255, 255) !important;
+}
+
+.selected {
+  background-color: #35b335 !important;
 }
 
 /* --- Scroll buttons --- */
 .prev-btn {
   align-self: center;
   margin-right: 15px;
+  font-size: 1rem;
 
 }
 
 .next-btn {
   align-self: center;
   margin-left: 15px;
+  font-size: 1rem;
 }
 
 
@@ -86,5 +116,74 @@ h1 {
   color: white;
   margin: 0 auto;
   text-align: center;
+  font-size: 1rem;
+}
 
+.download-btn,
+.reset-btn {
+  font-size: 1rem;
+  margin: 0;
+}
+
+
+
+
+@media only screen and (min-width: 360px) {
+  .char-name h3 {
+    font-size: 0.7rem;
+  }
+
+  .character {
+    margin: 0;
+    height: 50px;
+
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  .header {
+    margin-top: 20px;
+  }
+
+  .conditional-msg {
+    margin-bottom: 0px;
+  }
+
+  .download-btn,
+  .reset-btn {
+    font-size: 0.8rem;
+  }
+
+}
+
+@media only screen and (min-width: 500px) {
+  .character {
+    height: 75%;
+
+  }
+
+  .char-name h3 {
+    font-size: 0.8rem;
+  }
+
+  .download-btn,
+  .reset-btn {
+    font-size: 1.2rem;
+  }
+}
+
+@media only screen and (min-width: 767px) {
+  .character {
+    height: 60%;
+
+  }
+
+  .page-numbers,
+  .prev-btn,
+  .next-btn {
+
+    font-size: 1.2rem;
+  }
 }

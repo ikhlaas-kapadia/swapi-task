@@ -20,7 +20,7 @@
       <h1 id="test" class="header text-center">Star Wars</h1>
       <div class="container">
           <div class="row selected-text">
-              <p class="col-sm-12 text-center text-light conditional-msg">SELECT 3 CHARACTERS!</p>
+              <p class="col-sm-12 text-center text-light conditional-msg">SELECT 2 CHARACTERS OR MORE!</p>
           </div>
           <div class="row">
               <div class="btn-container col-sm-12 text-center invisible">
@@ -30,27 +30,27 @@
           </div>
       </div>
 
-      <div class="container-sm d-flex justify-content-center flex-row">
-          <button class="prev-btn "><</button>
+      <div class="container-fluid d-flex justify-content-center flex-row ">
           <div class="row characters-box">
             <?php
               for($x = 0; $x < 9; $x++) {?>
-              <div class="col-sm-4 <?php echo "char-$x"?>">
-                <div class="card character flex-row rounded-0 " >
+              <div class="col-6 col-md-4 rounded-0 <?php echo "char-$x"?>">
+                <div class="character" >
                     <div class="image-container">
-                      <div class="person-icon"></div>
                     </div>
-                    <div class="char-name" > 
+                    <div class="char-name unselected" > 
                         <h3 class="text-right" id="<?php echo "name-$x"?>"></h3>
                     </div>
                 </div>
               </div>
                 <?php } ?>
           </div>
-          <button class="next-btn">></button>
+          
         </div>
         <div class="page-numbers">
+          <button class="prev-btn "><</button>
           <span class="current-page">PAGE 1 /  </span> <span class="total-page"> 10  </span>
+          <button class="next-btn">></button>
         </div>
   
     <script
