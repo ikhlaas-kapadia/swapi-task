@@ -17,10 +17,11 @@
     <title>SWAPI-TASK</title>
   </head>
   <body>
+    <div>
       <h1 id="test" class="header text-center">Star Wars</h1>
       <div class="container">
           <div class="row selected-text">
-              <p class="col-sm-12 text-center text-light conditional-msg">SELECT 2 CHARACTERS OR MORE!</p>
+              <p class="col-sm-12 span12 text-center conditional-msg">SELECT 2 CHARACTERS OR MORE!</p>
           </div>
           <div class="row">
               <div class="btn-container col-sm-12 text-center invisible">
@@ -45,13 +46,15 @@
               </div>
                 <?php } ?>
           </div>
-          
-        </div>
-        <div class="page-numbers">
+      </div>
+      <div class="page-numbers">
           <button class="prev-btn "><</button>
           <span class="current-page">PAGE 1 /  </span> <span class="total-page"> 10  </span>
           <button class="next-btn">></button>
-        </div>
+      </div>
+      <div class="empty">
+
+      </div>
   
     <script
     src="https://code.jquery.com/jquery-3.4.1.min.js"

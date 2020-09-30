@@ -1,6 +1,9 @@
 body {
-  background-image: url("../images/background.png");
+  background-image: url("../images/bg3.jpeg");
+  background-position: center;
+  background-repeat: no-repeat;
   box-sizing: border-box;
+  background-size: cover;
   font-size: 2em;
 }
 
@@ -24,7 +27,6 @@ h1 {
 
 /* ----- Character Box ---- */
 .characters-box {
-  border: 1px solid red;
   min-height: 60vh;
   max-height: 60vh;
   display: flex;
@@ -34,11 +36,15 @@ h1 {
 }
 
 .conditional-msg {
+  color: #feff67;
   margin-top: 1vh;
-  border: 1px solid green;
   font-size: 0.9rem;
   min-height: 10vh;
+  background: #19182a52;
+
 }
+
+
 
 .character {
   margin: 15px 0 15px 0;
@@ -57,7 +63,6 @@ h1 {
   width: 40%;
   min-height: 100%;
   margin: 0;
-  border: 1px solid yellow;
   background-image: url("../images/user.png");
   background-repeat: no-repeat;
   background-size: 70% 90%;
@@ -72,7 +77,6 @@ h1 {
   border-left: 1px solid black;
   margin: 0;
   min-height: 100%;
-  border: 1px solid red;
   display: flex;
 }
 
@@ -113,16 +117,21 @@ h1 {
 
 /* --- dynamic page numbers--- */
 .page-numbers {
-  color: white;
-  margin: 0 auto;
+  color: #feff55;
+  margin: 10px auto;
   text-align: center;
   font-size: 1rem;
+  background: #19182a4d;
 }
 
 .download-btn,
 .reset-btn {
   font-size: 0.9rem;
-  margin: 0;
+  margin-bottom: 1vh;
+}
+
+.empty {
+  height: 10vh;
 }
 
 
@@ -150,11 +159,6 @@ h1 {
   .conditional-msg {
     margin-bottom: 0px;
   }
-
-  /* .download-btn,
-  .reset-btn {
-    font-size: 0.8rem;
-  } */
 
 }
 
