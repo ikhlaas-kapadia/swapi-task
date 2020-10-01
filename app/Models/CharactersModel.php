@@ -17,7 +17,7 @@ class CharactersModel extends Model
         $charactersArray = array("count"=>$totalResults, "perPage"=>$resultsPerPage);
         
       
-
+      //try ajax!!!
       while($moreData == true && $pages < 3) {
         $pages++;
         $baseUrl = $moreData;
