@@ -184,9 +184,11 @@ $(document).ready(function () {
     let itemsViewed = itemsPerPage * page;
     let itemPosition = itemsViewed - itemsPerPage;
     let elementNumber = 0;
-    character.css({
-      background: "rgba(0, 0, 0, 0)",
-    });
+    // character.css({
+    //   background: "rgba(0, 0, 0, 0)",
+    // });
+    character.removeClass("selected");
+    character.addClass("unselected");
     for (let i = itemPosition; i < itemsViewed; i++) {
       let charName = allCharacters[i] ? allCharacters[i].name : null;
       if (charName) {
