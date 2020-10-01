@@ -17,10 +17,10 @@
     <title>SWAPI-TASK</title>
   </head>
   <body>
-    <div>
+    <div class="bg">
       <h1 id="test" class="header text-center">Star Wars</h1>
-      <div class="container">
-          <div class="row selected-text">
+      <div class="container-fluid conditional-text">
+          <div class="row">
               <p class="col-sm-12 span12 text-center conditional-msg">SELECT 2 CHARACTERS OR MORE!</p>
           </div>
           <div class="row">
@@ -31,31 +31,23 @@
           </div>
       </div>
 
-      <div class="container-fluid d-flex justify-content-center flex-row ">
-          <div class="row characters-box">
+      <div class="container char-container">
             <?php
               for($x = 0; $x < 9; $x++) {?>
-              <div class="col-6 col-md-4 rounded-0 <?php echo "char-$x"?>">
-                <div class="character" >
-                    <div class="image-container">
-                    </div>
+              <div class=" character-box rounded-0 <?php echo "char-$x"?>">
+                    <div class="image-container"></div>
                     <div class="char-name unselected" > 
-                        <h3 class="text-right" id="<?php echo "name-$x"?>"></h3>
+                        <h3 class="text-left" id="<?php echo "name-$x"?>"></h3>
                     </div>
-                </div>
               </div>
                 <?php } ?>
-          </div>
       </div>
       <div class="page-numbers">
           <button class="prev-btn "><</button>
           <span class="current-page">PAGE 1 /  </span> <span class="total-page"> 10  </span>
           <button class="next-btn">></button>
       </div>
-      <div class="empty">
-
-      </div>
-  
+    </div>         
     <script
     src="https://code.jquery.com/jquery-3.4.1.min.js"
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
