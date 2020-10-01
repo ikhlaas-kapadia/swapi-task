@@ -1,10 +1,24 @@
 body {
-  background-image: url("../images/bg3.jpeg");
+  box-sizing: border-box;
+  font-size: 2em;
+  margin: 0;
+  padding: 0;
+}
+.bg {
+  background-image: linear-gradient(
+      to bottom,
+      rgb(255 255 255 / 12%),
+      rgb(16 24 78 / 35%)
+    ),
+    url("../images/bg3.jpeg");
   background-position: center;
   background-repeat: no-repeat;
-  box-sizing: border-box;
   background-size: cover;
-  font-size: 2em;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  max-height: max-content;
+  /* border: 2px solid green; */
 }
 
 @font-face {
@@ -16,70 +30,61 @@ h1 {
   font-family: "Star Jedi", arial;
   -webkit-text-stroke: 1px #ffff55;
   font-size: 2.5rem;
+  margin: 0;
 }
 
 .header {
-  margin-bottom: 1vh;
-  margin-top: 1vh;
+  margin: 0;
+  padding-top: 1vh;
   width: 90%;
   margin: 0 auto;
+  /* border: 2px solid yellow; */
+  min-height: 15vh;
+}
+.conditional-text {
+  min-height: 20vh;
+}
+.conditional-msg {
+  color: #feff67;
+  font-size: 0.9rem;
+  background: #19182a52;
 }
 
 /* ----- Character Box ---- */
-.characters-box {
-  min-height: 60vh;
-  max-height: 60vh;
+.char-container {
+  /* border: 2px solid red; */
+  height: 55vh;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: flex-start;
 }
 
-.conditional-msg {
-  color: #feff67;
-  margin-top: 1vh;
-  font-size: 0.9rem;
-  min-height: 10vh;
-  background: #19182a52;
-
-}
-
-
-
-.character {
-  margin: 15px 0 15px 0;
-  height: 40px;
-  width: 100%;
+.character-box {
   border: 1px solid black;
   display: flex;
   flex-direction: row;
+  width: 40%;
+  height: 17%;
 }
 
-
-
-
-
 .image-container {
-  width: 40%;
+  min-width: 40%;
   min-height: 100%;
-  margin: 0;
   background-image: url("../images/user.png");
   background-repeat: no-repeat;
   background-size: 70% 90%;
   background-position: center;
-  background-color: rgb(255, 255, 255)
+  background-color: rgb(243 243 244 / 92%);
+  /* border: 2px solid purple; */
 }
-
-
 
 .char-name {
-  width: 60%;
   border-left: 1px solid black;
-  margin: 0;
-  min-height: 100%;
+  /* border: 2px solid green; */
   display: flex;
+  width: 100%;
 }
-
 .char-name h3 {
   align-self: center;
   height: 50%;
@@ -87,9 +92,8 @@ h1 {
   margin: auto 0;
   width: 100%;
   text-align: center;
-  padding-right: 5px;
-  font-size: 0.7rem;
-
+  padding-left: 5px;
+  font-size: 0.6rem;
 }
 
 .unselected {
@@ -105,7 +109,6 @@ h1 {
   align-self: center;
   margin-right: 15px;
   font-size: 1rem;
-
 }
 
 .next-btn {
@@ -114,91 +117,55 @@ h1 {
   font-size: 1rem;
 }
 
-
 /* --- dynamic page numbers--- */
 .page-numbers {
   color: #feff55;
-  margin: 10px auto;
+  /* margin: 10px auto; */
   text-align: center;
+  min-height: 10vh;
+  max-height: max-content;
   font-size: 1rem;
-  background: #19182a4d;
+  /* background: #19182a4d; */
+  /* border: 2px solid blue; */
 }
 
+/* ----- Download Buttons ----- */
 .download-btn,
 .reset-btn {
   font-size: 0.9rem;
-  margin-bottom: 1vh;
 }
 
-.empty {
-  height: 10vh;
-}
-
-
-
-
-@media only screen and (min-width: 360px) {
-  .char-name h3 {
-    font-size: 0.7rem;
-  }
-
-  .character {
-    margin: 0;
-    height: 50px;
-
-  }
-
-  h1 {
-    font-size: 2.5rem;
-  }
-
-  .header {
-    margin-top: 20px;
-  }
-
-  .conditional-msg {
-    margin-bottom: 0px;
-  }
-
-}
-
-@media only screen and (min-width: 500px) {
-  .character {
-    height: 75%;
-
-  }
-
-  .char-name h3 {
-    font-size: 0.8rem;
-  }
-
-  .download-btn,
-  .reset-btn {
-    font-size: 1.2rem;
-  }
-}
-
-@media only screen and (min-width: 767px) {
-  .character {
-    height: 60%;
-
-  }
-
-  .page-numbers,
-  .prev-btn,
-  .next-btn {
-
-    font-size: 1.2rem;
-  }
-}
-
-@media only screen and (min-width: 900px) {
-
+@media only screen and (min-width: 580px) {
   h1 {
     font-size: 3.5rem;
   }
+  .char-name h3 {
+    font-size: 0.9rem;
+  }
 
+  .conditional-text {
+    min-height: 15vh;
+  }
   .conditional-msg {
+    font-size: 1rem;
+    background: #19182a52;
+  }
+  .char-container {
+    height: 60vh;
+  }
+  .download-btn,
+  .reset-btn {
+    font-size: 1rem;
+  }
+  .character-box {
+    width: 32%;
+    height: 18%;
+  }
+  .page-numbers {
+    font-size: 1.2rem;
+  }
+  .prev-btn,
+  .next-btn {
     font-size: 1.2rem;
   }
 }
