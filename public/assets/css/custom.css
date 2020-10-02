@@ -71,7 +71,7 @@ h1 {
 .image-container {
   min-width: 40%;
   min-height: 100%;
-  background-image: url("../images/avatar.png");
+  background-image: url("../images/user.png");
   background-repeat: no-repeat;
   background-size: contain;
   background-size: 70% 80%;
